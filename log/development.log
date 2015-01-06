@@ -835,3 +835,52 @@ AbstractController::ActionNotFound (The action 'show' could not be found for Use
 
   Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+
+
+Started GET "/rails/info/routes" for 127.0.0.1 at 2015-01-06 15:59:39 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.9ms)
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/railties-4.1.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 45ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes" for 127.0.0.1 at 2015-01-06 15:59:43 -0200
+Processing by Rails::InfoController#routes as HTML
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.3ms)
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.4ms)
+  Rendered /home/luan/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/railties-4.1.7/lib/rails/templates/rails/info/routes.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2015-01-06 16:07:58 -0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 49ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/rooms.css?body=1" for 127.0.0.1 at 2015-01-06 16:07:58 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-01-06 16:07:58 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
+
+
+Started GET "/assets/rooms.js?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-06 16:07:59 -0200
