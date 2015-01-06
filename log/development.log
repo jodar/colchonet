@@ -1895,3 +1895,61 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-06 17:29:53 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-06 17:29:53 -0200
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1000[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'admin@example.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1000[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'admin@example.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1000[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemovePassordFromUsers (20150106195651)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar(255), "email" varchar(255), "password" varchar(255), "location" varchar(255), "bio" text, "created_at" datetime, "updated_at" datetime, "password_digest" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","full_name","email","password","location","bio","created_at","updated_at","password_digest") VALUES (1, NULL, 'admin@example.com', NULL, NULL, NULL, '2015-01-05 19:35:13.221483', '2015-01-05 19:35:13.221483', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","full_name","email","password","location","bio","created_at","updated_at","password_digest") VALUES (2, 'Joao', 'joao@example.com', 'segredo', 'São Paulo - Brasil', NULL, '2015-01-05 19:41:55.862079', '2015-01-05 19:41:55.862079', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","full_name","email","password","location","bio","created_at","updated_at","password_digest") VALUES (3, 'Luan Jodar da Silva', 'jodar.cobain@gmail.com', 'senha5', 'Pedro Osório', 'Avenida Protásio Alves, Porto Alegre/RS', '2015-01-06 17:49:53.631491', '2015-01-06 17:49:53.631491', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","full_name","email","password","location","bio","created_at","updated_at","password_digest") VALUES (4, 'Jader Correa', 'jader@correa.com', NULL, 'Porto Alegre', 'Trabalha remoto, pra uma empresa gringa', '2015-01-06 19:29:53.354421', '2015-01-06 19:29:53.354421', '$2a$10$QVB4qVq0C77Ve26zl9uLPeHe/VI12HvCRdVYDFqMJvFQEeDbQ.zsi')[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar(255), "email" varchar(255), "location" varchar(255), "bio" text, "created_at" datetime, "updated_at" datetime, "password_digest" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","full_name","email","location","bio","created_at","updated_at","password_digest") VALUES (1, NULL, 'admin@example.com', NULL, NULL, '2015-01-05 19:35:13.221483', '2015-01-05 19:35:13.221483', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","full_name","email","location","bio","created_at","updated_at","password_digest") VALUES (2, 'Joao', 'joao@example.com', 'São Paulo - Brasil', NULL, '2015-01-05 19:41:55.862079', '2015-01-05 19:41:55.862079', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","full_name","email","location","bio","created_at","updated_at","password_digest") VALUES (3, 'Luan Jodar da Silva', 'jodar.cobain@gmail.com', 'Pedro Osório', 'Avenida Protásio Alves, Porto Alegre/RS', '2015-01-06 17:49:53.631491', '2015-01-06 17:49:53.631491', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","full_name","email","location","bio","created_at","updated_at","password_digest") VALUES (4, 'Jader Correa', 'jader@correa.com', 'Porto Alegre', 'Trabalha remoto, pra uma empresa gringa', '2015-01-06 19:29:53.354421', '2015-01-06 19:29:53.354421', '$2a$10$QVB4qVq0C77Ve26zl9uLPeHe/VI12HvCRdVYDFqMJvFQEeDbQ.zsi')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150106195651"]]
+  [1m[36m (113.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
